@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+<nav>
+  <div class="logo">
+    <a routerLink="/">
+    <img src="../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
+    </a>
+
+     <span class="quiz"> Quiz Mania</span>
+    <span class="example-spacer"></span>
+  </div>
+  <input type="checkbox" id="click" >
+  <label for="click" class="menu-btn">
+  <i class="fas fa-bars"></i>
+  </label>
+  <ul>
+     <li><a
+      [routerLink]="'/'" >
+        Home
+     </a></li>
+     <li> <a
+      [routerLink]="'/contact'" >
+       Contact Us
+    </a></li>
+
+      <li><a [routerLink]="'leaderboard'" >Leaderboard</a></li>
+
+
+
+
+     <li><a
+      *ngIf="!isLoggedIn"
+      [routerLink]="'/login'">
+      Login
+    </a> </li>
+     <li><a
+      *ngIf="!isLoggedIn"
+        [routerLink]="'/signup'">
+          Register </a></li>
+     <li><a class="mr20"
+      (click)="logout()"
+      *ngIf="isLoggedIn">
+      Logout
+    </a></li>
+    <!-- <li> -->
+      <a
+      *ngIf="isLoggedIn && user.authorities[0].authority=='NORMAL'"
+          routerLink="/user-dashboard/profile" >
+        <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0"
+        class="profile-image mr20">
+        <img [src]="dbImage "  class="profile-image" >
+      </a>
+      <!-- </li> -->
+      <li>
+        <a  *ngIf="isLoggedIn && user.authorities[0].authority=='NORMAL'"
+        routerLink="/user-dashboard/profile">
+        {{login.getUser().username}}
+      </a>
+    </li>
+    <a
+      *ngIf="isLoggedIn && user.authorities[0].authority=='COORDINATOR'"
+          routerLink="/coordinator/profile" >
+        <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0"
+        class="profile-image mr20">
+        <img [src]="dbImage "  class="profile-image" >
+      </a>
+      <!-- </li> -->
+      <li>
+        <a  *ngIf="isLoggedIn && user.authorities[0].authority=='COORDINATOR'"
+        routerLink="/coordinator/profile">
+        {{login.getUser().username}}
+      </a>
+    </li><a
+    *ngIf="isLoggedIn && user.authorities[0].authority=='ADMIN'"
+        routerLink="/admin/profile" >
+      <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0"
+      class="profile-image mr20">
+      <img [src]="dbImage "  class="profile-image" >
+    </a>
+    <!-- </li> -->
+    <li>
+      <a  *ngIf="isLoggedIn && user.authorities[0].authority=='ADMIN'"
+      routerLink="/admin/profile">
+      {{login.getUser().username}}
+    </a>
+  </li>
+  </ul>
+</nav>
+

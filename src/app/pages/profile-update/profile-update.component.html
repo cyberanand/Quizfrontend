@@ -1,0 +1,75 @@
+            <mat-card>
+              <section class="side">
+                <img src="../../../assets/log2.png" alt="">
+              </section>
+              <section class="main">
+                <div class="login-container">
+                    <img class="img1"src="../../../assets/avatar.svg">
+                    <p class="title">Welcome</p>
+                    <div class="separator"></div>
+                    <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
+
+                    <form  *ngIf="user" (ngSubmit)="formSubmit()" enctype="multipart/form-data" class="login-form" >
+
+                        <div class="form-control">
+                            <input  required
+                            [(ngModel)] = "user.firstName"
+                            name = "firstName" type="text" placeholder="FirstName">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="form-control">
+                            <input  required
+                            [(ngModel)] = "user.lastName"
+                            name = "lastName" type="text" placeholder="LastName">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="form-control">
+                            <input  required
+                            [(ngModel)] = "user.email"
+                            name = "email"
+                            type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Email..">
+                            <i class="fa fa-envelope" ></i>
+                        </div>
+                        <div class="form-control">
+                          <input  required
+                          [(ngModel)] = "user.Instagram"
+                          name = "Instagram" type="text" placeholder="Instagram Link">
+                          <i class="fas fa-instagram"></i>
+                      </div>
+
+                      <div class="form-control">
+                        <input  required
+                        [(ngModel)] = "user.Github"
+                        name = "Github" type="text" placeholder="GithubLink">
+                        <i class="fas fa-github"></i>
+                    </div>
+                    <div class="form-control">
+                      <input  required
+                      [(ngModel)] = "user.discription"
+                      name = "Discription" type="text" placeholder="Write Description">
+                      <i class="fas fa-user"></i>
+
+                  </div>
+
+
+
+
+                        <div class="form-control">
+                            <input  required
+                            [(ngModel)] = "user.phone"
+                            name = "phone"
+                            type="number" placeholder="Phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <label for="img" class="profile-pic-label">Choose a profile picture:</label>
+                        <div class="form-control">
+                          <input type="file" id="img" name="img"  (change)="onImageUpload($event) " profile pic>
+                        </div>
+                        <div class="container text-center">
+                          <button class="submit" type="submit">Update</button>
+                           <button class="submit" type="reset" style="margin-left:20px">Clear</button>
+                        </div>
+                    </form>
+                </div>
+              </section>
+              </mat-card>

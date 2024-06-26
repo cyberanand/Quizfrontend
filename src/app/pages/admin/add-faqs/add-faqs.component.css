@@ -1,0 +1,12 @@
+.w100{
+    width:100%;
+    text-align: justify;
+}
+h1{
+    font-weight: bold;
+    color: black;
+}
+mat-card{
+    background: azure;
+    border: 10px;
+}
