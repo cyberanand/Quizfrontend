@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FaqService } from 'src/app/services/faq/faq.service';
 import { PageEvent } from '@angular/material/paginator';
-import { TranslateServiceService } from 'src/app/services/translate-service.service';
+// import { TranslateServiceService } from 'src/app/services/translate-service.service';
 
 @Component({
   selector: 'app-faq',
@@ -11,7 +11,7 @@ import { TranslateServiceService } from 'src/app/services/translate-service.serv
 export class FaqComponent implements OnInit {
   panelOpenState: boolean = false;
   faqs:any;
-  constructor(private faq:FaqService,public trans:TranslateServiceService) { }
+  constructor(private faq:FaqService) { }
 
   ngOnInit(): void {
     let request:{[key:string]:any}={};
